@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getSearchData, deleteItem, sortData } from '../searchSlice'
-
+import './Table.css'
 const Table = () => {
     const dispatch = useDispatch()
     const searchData = useSelector(getSearchData)
@@ -12,7 +12,7 @@ const Table = () => {
         dispatch(sortData({ order: event.target.value, key: key }))
     }
     return (
-        <>
+        <div>
             <table>
                 <thead>
                     <tr>
@@ -32,6 +32,7 @@ const Table = () => {
                                 <option value="ASC">^</option>
                                 <option value="DESC">v</option>
                             </select></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +47,7 @@ const Table = () => {
                 </tbody>
             </table>
             {!searchData.length && <p>No data</p>}
-        </>
+        </div>
     )
 
 

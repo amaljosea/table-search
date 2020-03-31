@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getLoading, searchAsync, } from '../searchSlice'
 import useDebounce from '../../../hooks/useDebounce'
+import './Search.css'
 
 const Search = () => {
     const [searchText, setSearchText] = useState('')
@@ -16,10 +17,13 @@ const Search = () => {
         dispatch(searchAsync(searchTextDebounce))
     }, [searchTextDebounce])
     return (
-        <>
-            <input type="text" placeholder="Search.." value={searchText} onChange={onSearch} />
+        <div className="search-container">
+            <div>
+                <input className="search-input" type="text" placeholder="Search movies title" value={searchText} onChange={onSearch} />
+                <button className="search-icon"><i class="fa fa-search"></i></button>
+            </div>
             {useSelector(getLoading) && <p>Loading...</p>}
-        </>
+        </div>
     )
 }
 
