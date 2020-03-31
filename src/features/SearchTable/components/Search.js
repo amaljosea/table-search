@@ -20,7 +20,7 @@ const Search = () => {
         <div className="search-container">
             <div>
                 <input className="search-input" type="text" placeholder="Search movies title" value={searchText} onChange={onSearch} />
-                <button className="search-icon"><i class="fa fa-search"></i></button>
+                <button className="search-icon"><i className="fa fa-search"></i></button>
             </div>
             {useSelector(getLoading) && <p>Loading...</p>}
         </div>

@@ -9,7 +9,7 @@ table {
 
 }
 
-table td {
+table td, table th {
   border: 1px solid #000000;
   padding: 10px;
   color: #000;
@@ -20,21 +20,27 @@ table tr {
   margin-bottom: 10px;
 }
 
-table td:first-child{
+table td:first-child, 
+table th:first-child{
   border-left: 1px solid #000000;
 }
 
-table tbody td:first-child {
+table tbody td:first-child,
+table thead th:first-child {
   border-radius: 20px 0 0 20px;
 }
 
-table tbody td:last-child {
+table tbody td:last-child,
+table thead th:last-child {
   border-radius: 0 20px 20px 0;
 }
 
 table tbody td:nth-child(1),
 table tbody td:nth-child(2),
-table tbody td:nth-child(3) {
+table tbody td:nth-child(3),
+table thead th:nth-child(1),
+table thead th:nth-child(2),
+table thead th:nth-child(3)  {
   border-right: 0;
 }
 
