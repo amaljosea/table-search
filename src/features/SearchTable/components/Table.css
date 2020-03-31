@@ -6,7 +6,7 @@ table {
   border-radius: 30px;
   border-spacing: 0px;
   border-spacing: 0 1em;
-
+  width: 70vw;
 }
 
 .delete-icon{
@@ -67,9 +67,6 @@ table thead th:nth-child(3)  {
   border-right: 0;
 }
 
-.table-container{
-  margin-top: 20px;
-}
 .row-container{
   margin-bottom: 10px;
   width: 100%;
