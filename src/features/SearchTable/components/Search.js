@@ -1,18 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { getLoading, getSearchText, searchAsync, } from '../searchSlice'
+import { getLoading, searchAsync, } from '../searchSlice'
+import useDebounce from '../../../hooks/useDebounce'
 
 const Search = () => {
+    const [searchText, setSearchText] = useState('')
     const dispatch = useDispatch()
+    const searchTextDebounce = useDebounce(searchText, 250)
+
     const onSearch = (event) => {
-        dispatch(searchAsync(event.target.value))
+        setSearchText(event.target.value)
     }
+
     useEffect(() => {
-        dispatch(searchAsync(''))
-    }, [])
+        dispatch(searchAsync(searchTextDebounce))
+    }, [searchTextDebounce])
     return (
         <>
-            <input type="text" placeholder="Search.." value={useSelector(getSearchText)} onChange={onSearch} />
+            <input type="text" placeholder="Search.." value={searchText} onChange={onSearch} />
             {useSelector(getLoading) && <p>Loading...</p>}
         </>
     )
