@@ -9,7 +9,14 @@ table {
 
 }
 
+.delete-icon{
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+}
+
 table select{
+  cursor: pointer;
   margin-left: 10px;
   -moz-appearance: none;
   /* for Chrome */

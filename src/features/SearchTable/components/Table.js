@@ -41,7 +41,9 @@ const Table = () => {
                             <td>{row.Title}</td>
                             <td>{row.Year}</td>
                             <td>{row.imdbID}</td>
-                            <td><button onClick={() => onDeleteClick(row.imdbID)}>delete</button></td>
+                            <td><button className="delete-icon" onClick={() => onDeleteClick(row.imdbID)}>
+                                <i className="fa fa-trash"></i>
+                            </button></td>
                         </tr>
                     ))}
                 </tbody>
