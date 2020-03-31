@@ -9,11 +9,27 @@ table {
 
 }
 
+table select{
+  margin-left: 10px;
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+  border: 0;
+  background: #fff;
+}
+
+table select::-ms-expand {
+  display: none;
+}
+
 table td, table th {
   border: 1px solid #000000;
   padding: 10px;
   color: #000;
   border-left: none;
+}
+table th {
+  padding: 15px;
 }
 
 table tr {
