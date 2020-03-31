@@ -4,13 +4,19 @@ export const slice = createSlice({
   name: 'search',
   initialState: {
     value: 0,
-    searchText: 'ini',
+    searchText: '',
     searchData: [],
     loading: false,
   },
   reducers: {
     searchTextChange: (state, action) => {
       state.searchText = action.payload
+    },
+    loadingChange: (state, action) => {
+      state.loading = action.payload
+    },
+    searchDataChange: (state, action) => {
+      state.searchData = action.payload
     },
     increment: state => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -28,7 +34,7 @@ export const slice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount, searchTextChange } = slice.actions;
+export const { increment, decrement, incrementByAmount, searchTextChange, loadingChange, searchDataChange } = slice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -40,11 +46,13 @@ export const incrementAsync = amount => dispatch => {
   }, 1000);
 };
 
-export const searchAsync = searchText => dispatch => {
+export const searchAsync = searchText => async (dispatch) => {
   dispatch(searchTextChange(searchText));
-  //call api here
-  setTimeout(() => {
-  }, 1000);
+  dispatch(loadingChange(true));
+  const response = await fetch(`https://jsonmock.hackerrank.com/api/movies/search/?Title=${searchText}`)
+  let data = await response.json()
+  dispatch(searchDataChange(data.data));
+  dispatch(loadingChange(false));
 };
 
 // The function below is called a selector and allows us to select a value from
@@ -52,6 +60,7 @@ export const searchAsync = searchText => dispatch => {
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 export const selectCount = state => state.counter.value;
 export const getSearchText = state => state.search.searchText;
-
+export const getLoading = state => state.search.loading;
+export const getSearchData = state => state.search.searchData;
 
 export default slice.reducer;
