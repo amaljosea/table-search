@@ -1,6 +1,46 @@
-table { border-collapse: collapse; }
+table {
+  border-collapse: inherit;
+  table-layout: fixed;
+  text-align: center;
+  font: 13px Verdana;
+  border-radius: 30px;
+  border-spacing: 0px;
+}
 
-table tr{
-  border: 1px solid black;
+table td {
+  border: 1px solid #000000;
+  padding: 10px;
+  color: #000;
+  border-left: none;
+}
+
+table tr {
+  margin-bottom: 10px;
+}
+
+table td:first-child{
+  border-left: 1px solid #000000;
+}
+
+table tbody td:first-child {
+  border-radius: 20px 0 0 20px;
+}
+
+table tbody td:last-child {
+  border-radius: 0 20px 20px 0;
+}
+
+table tbody td:nth-child(1),
+table tbody td:nth-child(2),
+table tbody td:nth-child(3) {
+  border-right: 0;
+}
+
+.table-container{
+  margin-top: 20px;
+}
+.row-container{
+  margin-bottom: 10px;
+  width: 100%;
 }
 

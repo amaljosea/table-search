@@ -12,7 +12,7 @@ const Table = () => {
         dispatch(sortData({ order: event.target.value, key: key }))
     }
     return (
-        <div>
+        <div className="table-container">
             <table>
                 <thead>
                     <tr>
@@ -38,10 +38,10 @@ const Table = () => {
                 <tbody>
                     {searchData.map((row) => (
                         <tr key={row.imdbID}>
-                            <td>{row.Title}</td>
-                            <td>{row.Year}</td>
-                            <td>{row.imdbID}</td>
-                            <td><button onClick={() => onDeleteClick(row.imdbID)}>delete</button></td>
+                                <td>{row.Title}</td>
+                                <td>{row.Year}</td>
+                                <td>{row.imdbID}</td>
+                                <td><button onClick={() => onDeleteClick(row.imdbID)}>delete</button></td>
                         </tr>
                     ))}
                 </tbody>
