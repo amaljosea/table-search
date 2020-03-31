@@ -5,6 +5,8 @@ table {
   font: 13px Verdana;
   border-radius: 30px;
   border-spacing: 0px;
+  border-spacing: 0 1em;
+
 }
 
 table td {
