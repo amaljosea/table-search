@@ -6,8 +6,8 @@ import {
   incrementByAmount,
   incrementAsync,
   selectCount,
-} from './counterSlice';
-import styles from './Counter.module.css';
+} from './searchSlice';
+import styles from './Search.module.css';
 
 import Table from './componets/Table'
 import Search from './componets/Search'
