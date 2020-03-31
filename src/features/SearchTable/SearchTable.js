@@ -9,8 +9,8 @@ import {
 } from './searchSlice';
 import styles from './Search.module.css';
 
-import Table from './componets/Table'
-import Search from './componets/Search'
+import Table from './components/Table'
+import Search from './components/Search'
 
 
 export function SearchTable() {
