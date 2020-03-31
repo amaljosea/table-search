@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import sort from '../../features/SearchTable/utils/sort'
 export const slice = createSlice({
   name: 'search',
   initialState: {
@@ -19,11 +19,14 @@ export const slice = createSlice({
     },
     deleteItem: (state, action) => {
       state.searchData = state.searchData.filter((i) => i.imdbID !== action.payload)
-    }
+    },
+    sortData: (state, action) => {
+      state.searchData = sort(action.payload.order, action.payload.key, state.searchData)
+    },
   },
 });
 
-export const { searchTextChange, loadingChange, searchDataChange, deleteItem } = slice.actions;
+export const { searchTextChange, loadingChange, searchDataChange, deleteItem, sortData } = slice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
