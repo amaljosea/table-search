@@ -16,11 +16,14 @@ export const slice = createSlice({
     },
     searchDataChange: (state, action) => {
       state.searchData = action.payload
+    },
+    deleteItem: (state, action) => {
+      state.searchData = state.searchData.filter((i) => i.imdbID !== action.payload)
     }
   },
 });
 
-export const { searchTextChange, loadingChange, searchDataChange } = slice.actions;
+export const { searchTextChange, loadingChange, searchDataChange, deleteItem } = slice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This

@@ -1,9 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
-import { getSearchData } from '../searchSlice'
+import { useSelector, useDispatch } from 'react-redux';
+import { getSearchData, deleteItem } from '../searchSlice'
 
 const Table = () => {
+    const dispatch = useDispatch()
     const searchData = useSelector(getSearchData)
+    const onDeleteClick = (imdbID) => {
+        dispatch(deleteItem(imdbID))
+    }
     return (
         <>
             <table>
@@ -20,6 +24,7 @@ const Table = () => {
                             <td>{row.Title}</td>
                             <td>{row.Year}</td>
                             <td>{row.imdbID}</td>
+                            <td><button onClick={() => onDeleteClick(row.imdbID)}>delete</button></td>
                         </tr>
                     ))}
                 </tbody>
